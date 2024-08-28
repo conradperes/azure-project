@@ -20,24 +20,24 @@ Diagrama de Arquitetura
 Abaixo está o diagrama de arquitetura que ilustra como os diferentes componentes do Azure interagem entre si:
 
 
-+-------------------+       +-----------------+
-|                   |       |                 |
-|  Azure Key Vault  |       | Azure Cosmos DB |
-|                   |<----->|   MongoDB API   |
-+-------------------+       +-----------------+
-        ^
-        |
-        v
-+-------------------+       +-----------------------+
-|                   |       |                       |
-|  Azure Function   |<----->| Azure Storage Account |
-|                   |       |                       |
-+-------------------+       +-----------------------+
-        ^
-        |
-        v
-  HTTP Request
-(Insomnia/Postman)
+	+-------------------+       +-----------------+
+	|                   |       |                 |
+	|  Azure Key Vault  |       | Azure Cosmos DB |
+	|                   |<----->|   MongoDB API   |
+	+-------------------+       +-----------------+
+	        ^
+	        |
+	        v
+	+-------------------+       +-----------------------+
+	|                   |       |                       |
+	|  Azure Function   |<----->| Azure Storage Account |
+	|                   |       |                       |
+	+-------------------+       +-----------------------+
+	        ^
+	        |
+	        v
+	  HTTP Request
+	(Insomnia/Postman)
 
 
 Configuração do Projeto
@@ -53,13 +53,13 @@ Configuração do Projeto
 
 Crie um arquivo .env na raiz do projeto e adicione as seguintes variáveis:
 
-RESOURCE_GROUP="myResourceGroup"
-LOCATION="brazilsouth"
-COSMOS_DB_ACCOUNT="conradcosmosdbaccount"
-COSMOS_DB_NAME="mycosmosdb"
-KEY_VAULT_NAME="conradkeyvault123"
-FUNCTION_APP_NAME="myfunctionapp"
-STORAGE_ACCOUNT_NAME="mystorageaccount"
+	RESOURCE_GROUP="myResourceGroup"
+	LOCATION="brazilsouth"
+	COSMOS_DB_ACCOUNT="conradcosmosdbaccount"
+	COSMOS_DB_NAME="mycosmosdb"
+	KEY_VAULT_NAME="conradkeyvault123"
+	FUNCTION_APP_NAME="myfunctionapp"
+	STORAGE_ACCOUNT_NAME="mystorageaccount"
 
 
 3. Executar o Script de Configuração
@@ -67,14 +67,14 @@ STORAGE_ACCOUNT_NAME="mystorageaccount"
 Execute o script azure_setup.sh para criar todos os recursos necessários no Azure:
 
 
-bash azure_setup.sh
+	bash azure_setup.sh
 
 
 4. Publicação da Azure Function
 
 Após configurar o ambiente e os recursos, publique a Azure Function:
 
-func azure functionapp publish $FUNCTION_APP_NAME
+	func azure functionapp publish $FUNCTION_APP_NAME
 
 
 
@@ -104,12 +104,12 @@ A Azure Function processará a requisição, salvará os dados JSON no Cosmos DB
 
 Estrutura do Projeto
 
-azure-project/
-│
-├── main.py              # Código da Azure Function
-├── README.md            # Documentação do projeto
-├── .env                 # Variáveis de ambiente
-└── azure_setup.sh       # Script para configuração no Azure
+	azure-project/
+	│
+	├── main.py              # Código da Azure Function
+	├── README.md            # Documentação do projeto
+	├── .env                 # Variáveis de ambiente
+	└── azure_setup.sh       # Script para configuração no Azure
 
 
 
